@@ -20,7 +20,7 @@ args = parser.parse_args()
 
 if args.use_box:
    # pipe = StableDiffusionGLIGENPipeline.from_pretrained(
-   #     "gligen/gligen-generation-text-image-box", variant="fp16", torch_dtype=torch.float16
+   #     "masterful/gligen-1-4-generation-text-box", variant="fp16", torch_dtype=torch.float16
    # )
     pipe = StableDiffusionGLIGENTextImagePipeline.from_pretrained(
         "anhnct/Gligen_Text_Image", torch_dtype=torch.float16

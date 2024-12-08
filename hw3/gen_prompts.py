@@ -6,6 +6,13 @@ import json
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+"""
+processor = Blip2Processor.from_pretrained("Salesforce/blip2-opt-2.7b")
+model = Blip2ForConditionalGeneration.from_pretrained(
+    "Salesforce/blip2-opt-2.7b",  device_map={"": 0}, torch_dtype=torch.float16
+)  # doctest: +IGNORE_RESULT
+"""
+
 processor = Blip2Processor.from_pretrained("Salesforce/blip2-flan-t5-xl")
 model = Blip2ForConditionalGeneration.from_pretrained(
     "Salesforce/blip2-flan-t5-xl",  device_map={"": 0}, torch_dtype=torch.float16
@@ -17,7 +24,7 @@ def get_prompt(labels):
     for label in labels:
         prompt += f"\"{label}\", "
     prompt += "in the picture. Write an overall description of the picture. Answer:"
-    return "Question: Write an overall description of the picture. Answer:"
+    return "Question: Write an overall description of the picture. Answer:"  # Only this
 
 def get_prompt_w_label(text, labels):
     for label in labels:

@@ -1,6 +1,6 @@
-images*
-batch_gligen_new.py
-gligen-1-4-generation-text-box.jpg
-gligen_checkpoints
-pytorch-fid/
-GLIGEN/
+hw3/images*
+hw3/batch_gligen_new.py
+hw3/gligen-1-4-generation-text-box.jpg
+hw3/gligen_checkpoints
+hw3/pytorch-fid/
+hw3/GLIGEN/
