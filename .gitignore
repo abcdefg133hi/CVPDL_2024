@@ -1,0 +1,6 @@
+images*
+batch_gligen_new.py
+gligen-1-4-generation-text-box.jpg
+gligen_checkpoints
+pytorch-fid/
+GLIGEN/
