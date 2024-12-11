@@ -20,7 +20,7 @@ args = parser.parse_args()
 
 if args.use_box:
    # pipe = StableDiffusionGLIGENPipeline.from_pretrained(
-   #     "masterful/gligen-1-4-generation-text-box", variant="fp16", torch_dtype=torch.float16
+   #     "gligen/gligen-generation-text-image-box", variant="fp16", torch_dtype=torch.float16
    # )
     pipe = StableDiffusionGLIGENTextImagePipeline.from_pretrained(
         "anhnct/Gligen_Text_Image", torch_dtype=torch.float16
@@ -46,7 +46,7 @@ for entry in tqdm(data, total=len(data)):
     width, height = 512, 512
     #print(width)
     #print(height)
-    prompt = entry["prompt_w_suffix"]
+    prompt = entry["generated_text"]
     entry["bboxes"] = np.array(entry["bboxes"], dtype=float)
     entry["bboxes"][:, [0, 2]] /= width   # Normalize x-coordinates (xmin, xmax)
     entry["bboxes"][:, [1, 3]] /= height  # Normalize y-coordinates (ymin, ymax))))
@@ -57,7 +57,7 @@ for entry in tqdm(data, total=len(data)):
 
     if args.use_box:
         images = pipe(
-            gligen_images=[reference_image],
+            gligen_images=[reference_image.copy() for _ in range(len(phrases))],
             prompt=prompt,
             gligen_phrases=phrases,
             gligen_boxes=boxes,
