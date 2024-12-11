@@ -21,7 +21,6 @@ python3 resize_image_to_512_512.py
 ## Image Generation (First Stage)
 
 - For pure text generation, I used stable diffussion model `runwayml/stable-diffusion-v1-5`.
-- For text+box  generation, I used gligen model `masterful/gligen-1-4-generation-text-box`.
 - For text+box+image geneation, I used gligen model `anhnct/Gligen_Text_Image`.
 
 The inference code is
@@ -40,8 +39,4 @@ pip install pytorch_fid
 python -m pytorch_fid [generated_images] processed_images
 ```
 
-
-## Vis\_200 Generation
-
-After finding the best generation strategy ... (TODO)
 
